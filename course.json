@@ -1,18 +1,17 @@
 {
   "author": {
     "name": "Brian Holt",
-    "company": "Stripe"
+    "company": "SQLite Cloud"
   },
-  "title": "Next.js Course Starter Kit",
-  "subtitle": "for Frontend Masters",
-  "frontendMastersLink": "https://frontendmasters.com/courses/complete-react-v6/",
+  "title": "Complete Intro to Containers",
+  "subtitle": "v2",
+  "frontendMastersLink": "https://frontendmasters.com/courses/complete-intro-containers-v2/",
   "social": {
     "linkedin": "btholt",
     "github": "btholt",
     "twitter": "holtbt"
   },
   "description": "A starter kit for making really amazing courses, optimized for Frontend Masters",
-  "keywords": ["your", "Google", "keywords", "here"],
-  "productionBaseUrl": "/next-course-starter",
+  "keywords": ["linux", "containers", "javascript", "node", "brian holt", "frontend masters", "docker", "nodejs", "kubernetes", "k8s", "cloud", "aws", "gcp", "azure", "sql", "sqlite"],
   "csvPath": "./out/lessons.csv"
 }
