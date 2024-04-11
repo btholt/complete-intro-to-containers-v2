@@ -1,7 +1,7 @@
 :root {
-  --primary: #dfa067;
-  --secondary: #93aca7;
-  --highlight: #224159;
+  --primary: #8FABFE;
+  --secondary: #CC7E85;
+  --highlight: #304C89;
 
   --text-header: var(--primary);
   --text-main-headers: var(--highlight);
