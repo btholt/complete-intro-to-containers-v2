@@ -15,7 +15,7 @@ You will need to set up Docker Desktop if you haven't already.
 
 Docker states on its website that it requires 4GB of RAM to run okay. I haven't tried it but that seems like it should be enough. 8GB would really put you in a comfortable spot.
 
-For Windows developers, you'll either need to be on Windows 10 or 11. It doesn't matter what version (Home, Pro, Education, etc.) It used to matter but now Windows allows any version of Windows 10+ to use Docker. Please be sure to follow all the instructions carefully as you may have to do some stuff like enable virtualization and turn on WSL which aren't on by default. This course does not work on Windows 7 or 8 (or 9, lol.)
+For Windows developers, you'll either need to be on Windows 10 or 11. It doesn't matter what version (Home, Pro, Education, etc.) It used to matter but now Windows allows any version of Windows 10+ to use Docker. Please be sure to follow all the instructions carefully as you may have to do some stuff like enable virtualization and turn on WSL which aren't on by default. This course does not work on Windows 7 or 8 (or 9, lol.) You will see on the Windows page a bunch of information about what version of Windows you need for Windows containers – ignore that. We're not doing any Windows containers today, just Linux.
 
 For Linux devs, they have instructions for Ubuntu, Debian, RHEL, and Fedora. They also list experimental support for Arch. If you're using something different than those, you're on your own. Generally if you're on Linux I'm going to assume you can translate my macOS instructions into Linux.
 
@@ -53,10 +53,10 @@ The short answer is no.
 
 The slightly longer answer is noooo.
 
-The longer answer is that it's likely _most_ of the course would work on something like Podman and Podman Desktop but I'm not testing any of it so I'm sure you'll run into inconsistencies and I won't be able to help you with it. They're very valid and useful pieces of technology and you should try them but for this course let's stick to Docker.
+The longer answer is that it's likely _most_ of the course would work on something like podman or nerdctl but I'm not testing any of it so I'm sure you'll run into inconsistencies and I won't be able to help you with it. They're very valid and useful pieces of technology and you should try them but for this course let's stick to Docker.
 
 [windows]: https://docs.docker.com/desktop/install/windows-install/
-[macos]: https://docs.docker.com/desktop/install/windows-install/
+[macos]: https://docs.docker.com/desktop/install/mac-install/
 [linux]: https://docs.docker.com/desktop/install/linux-install/
 [ligatures]: https://worldofzero.com/posts/enable-font-ligatures-vscode/
 [monolisa]: https://www.monolisa.dev/
