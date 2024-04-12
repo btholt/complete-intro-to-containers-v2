@@ -11,19 +11,20 @@ const config = {
   env: {
     BASE_URL,
   },
-  async redirects() {
-    if (BASE_URL) {
-      return [
-        {
-          source: "/",
-          destination: BASE_URL,
-          basePath: false,
-          permanent: false,
-        },
-      ];
-    }
-    return [];
-  },
 };
+
+if (process.env.NODE_ENV === "development" && BASE_URL) {
+  config.redirects = async () => {
+    console.log(`ℹ️ ignore the warning 'Specified "redirects" will not automatically work with "output: export"'. This redirect only happens in development mode.`)
+    return [
+      {
+        source: "/",
+        destination: BASE_URL,
+        basePath: false,
+        permanent: false,
+      },
+    ];
+  }
+}
 
 export default config;
