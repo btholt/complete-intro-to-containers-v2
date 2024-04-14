@@ -19,6 +19,6 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: out
-          fqdn: containers.holt.courses
+          fqdn: containers-v2.holt.courses
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
