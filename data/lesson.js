@@ -2,11 +2,23 @@ import path from "path";
 import fs from "fs/promises";
 import matter from "gray-matter";
 import { titleCase } from "title-case";
-import { marked } from "marked";
+import { Marked } from "marked";
+import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 
 const DEFAULT_ICON = "info-circle";
 const lessonsPath = path.join(process.cwd(), "lessons");
+
+const marked = new Marked(
+  markedHighlight({
+    baseUrl: process.env.BASE_URL ? process.env.BASE_URL + "/" : "/",
+    highlight: function (code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : "plaintext";
+      return hljs.highlight(code, { language }).value;
+    },
+    langPrefix: "hljs language-",
+  })
+);
 
 function getTitle(slug, override) {
   let title = override;
@@ -43,15 +55,6 @@ function slugify(inputPath) {
 }
 
 export async function getLessons() {
-  marked.setOptions({
-    baseUrl: process.env.BASE_URL ? process.env.BASE_URL + "/" : "/",
-    highlight: function (code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : "plaintext";
-      return hljs.highlight(code, { language }).value;
-    },
-    langPrefix: "hljs language-",
-  });
-
   const dir = await fs.readdir(lessonsPath);
   const sections = [];
 
@@ -137,7 +140,7 @@ export async function getLesson(targetDir, targetFile) {
           const filePath = path.join(lessonsPath, dirPath, slugPath);
           const file = await fs.readFile(filePath);
           const { data, content } = matter(file.toString());
-          const html = marked(content);
+          const html = marked.parse(content);
           const title = getTitle(targetFile, data.title);
           const meta = await getMeta(dirPath);
 
