@@ -303,6 +303,11 @@ header .cta-btn {
   display: block;
 }
 
+.lesson-content pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
 .lesson-flex {
   display: flex;
   flex-direction: column;

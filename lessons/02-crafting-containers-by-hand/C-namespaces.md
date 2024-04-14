@@ -32,6 +32,7 @@ exit # from our chroot'd environment if you're still running it, if not skip thi
 
 # install debootstrap
 
+```bash
 apt-get update -y
 apt-get install debootstrap -y
 debootstrap --variant=minbase jammy /better-root
@@ -42,7 +43,7 @@ unshare --mount --uts --ipc --net --pid --fork --user --map-root-user chroot /be
 mount -t proc none /proc # process namespace
 mount -t sysfs none /sys # filesystem
 mount -t tmpfs none /tmp # filesystem
-``
+```
 
 This will create a new environment that's isolated on the system with its own PIDs, mounts (like storage and volumes), and network stack. Now we can't see any of the processes!
 
