@@ -260,8 +260,22 @@ header .cta-btn {
   padding: 15px 0;
 }
 
+.lesson li {
+  list-style-position: inside;
+  text-indent: -1em;
+  padding-left: 1em;
+}
+
 .lesson li li {
   margin-left: 25px;
+}
+
+.lesson p, .lesson ul, .lesson ol, .lesson h3 {
+  margin-bottom: 15px;
+}
+
+.lesson h3 {
+  margin-top: 30px;
 }
 
 .next {

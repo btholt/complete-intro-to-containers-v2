@@ -25,8 +25,11 @@ cgroups as we have said allow you to move processes and their children into grou
 You interact with cgroups by a pseudo-file system. Honestly the whole interface feels weird to me but that is what it is! Inside your #2 terminal (the non-unshared one) run `cd /sys/fs/cgroup` and then run `ls`. You'll see a bunch of "files" that look like `cpu.max`, `cgroup.procs`, and `memory.high`. Each one of these represents a setting that you can play with with regard to the cgroup. In this case, we are looking at the root cgroup: all cgroups will be children of this root cgroup. The way you make your own cgroup is by creating a folder inside of the cgroup.
 
 ```bash
-mkdir /sys/fs/cgroup/sandbox # creates the cgroup
-ls /sys/fs/cgroup/sandbox # look at all the files created automatically
+# creates the cgroup
+mkdir /sys/fs/cgroup/sandbox
+
+# look at all the files created automatically
+ls /sys/fs/cgroup/sandbox
 ```
 
 We now have a sandbox cgroup which is a child of the root cgroup and can putting limits on it! If we wanted to create a child of sandbox, as you may have guessed, just create another folder inside of sandbox.
@@ -34,34 +37,58 @@ We now have a sandbox cgroup which is a child of the root cgroup and can putting
 Let's move our unshared environment into the cgroup. Every process belongs to exactly one cgroup. If you move a process to a cgroup, it will automatically be removed from the cgroup it was in. If we move our unshared bash process from the root cgroup to the sandbox cgroup, it will be removed from the root cgroup without you doing anything.
 
 ```bash
-ps aux # Find your isolated bash PID, it's the bash one immediately after the unshare
-cat /sys/fs/cgroup/cgroup.procs # should see the process in the root cgroup
-echo <PID> > /sys/fs/cgroup/sandbox/cgroup.procs # puts the unshared env into the cgroup called sandbox
-cat /sys/fs/cgroup/sandbox/cgroup.procs # should see the process in the sandbox cgroup
-cat /sys/fs/cgroup/cgroups.proc # should see the process no longer in the root cgroup - processes belong to exactly 1 cgroup
+# Find your isolated bash PID, it's the bash one immediately after the unshare
+ps aux
+
+# should see the process in the root cgroup
+cat /sys/fs/cgroup/cgroup.procs
+
+# puts the unshared env into the cgroup called sandbox
+echo <PID> > /sys/fs/cgroup/sandbox/cgroup.procs
+
+# should see the process in the sandbox cgroup
+cat /sys/fs/cgroup/sandbox/cgroup.procs
+
+# should see the process no longer in the root cgroup - processes belong to exactly 1 cgroup
+cat /sys/fs/cgroup/cgroups.proc
 ```
 
 We now have moved our unshared bash process into a cgroup. We haven't placed any limits on it yet but it's there, ready to be managed. We have a minor problem at the moment though that we need to solve.
 
 ```bash
-cat /sys/fs/cgroup/cgroup.controllers # should see all the available controllers
-cat /sys/fs/cgroup/sandbox/cgroup.controllers # there's no controllers
-cat /sys/fs/cgroup/cgroup.subtree_control # there's no controllers enabled its children
+# should see all the available controllers
+cat /sys/fs/cgroup/cgroup.controllers
+
+# there's no controllers
+cat /sys/fs/cgroup/sandbox/cgroup.controllers
+
+# there's no controllers enabled its children
+cat /sys/fs/cgroup/cgroup.subtree_control
 ```
 
 You have to enable controllers for the children and none of them are enabled at the moment. You can see the root cgroup has them all enabled, but hasn't enabled them in its subtree_control so thus none are available in sandbox's controllers. Easy, right? We just add them to subtree_control, right? Yes, but one probelm: you can't add new subtree_control configs while the cgroup itself has processes in it. So we're going to create another cgroup, add the rest of the processes to that one, and then enable the subtree_control configs for the root cgroup.
 
 ```bash
-mkdir /sys/fs/cgroup/other-procs # make new cgroup for the rest of the processes, you can't modify cgroups that have processes and by default Docker doesn't include any subtree_controllers
+# make new cgroup for the rest of the processes, you can't modify cgroups that have processes and by default Docker doesn't include any subtree_controllers
+mkdir /sys/fs/cgroup/other-procs
 
-cat /sys/fs/cgroup/cgroups.proc # see all the processes you need to move, rerun each time after you add as it may move multiple processes at once due to some being parent / child
-echo <PID> > /sys/fs/cgroup/other-procs/cgroup.procs # you have to do this one at a time for each process
+# see all the processes you need to move, rerun each time after you add as it may move multiple processes at once due to some being parent / child
+cat /sys/fs/cgroup/cgroups.proc
 
-echo "+cpuset +cpu +io +memory +hugetlb +pids +rdma" > /sys/fs/cgroup/cgroup.subtree_control # add the controllers
+# you have to do this one at a time for each process
+echo <PID> > /sys/fs/cgroup/other-procs/cgroup.procs
 
-ls /sys/fs/cgroup/sandbox # notice how few files there are
-cat /sys/fs/cgroup/sandbox/cgroup.controllers # all the controllers now available
-ls /sys/fs/cgroup/sandbox # notice how many more files there are now
+# add the controllers
+echo "+cpuset +cpu +io +memory +hugetlb +pids +rdma" > /sys/fs/cgroup/cgroup.subtree_control
+
+# notice how few files there are
+ls /sys/fs/cgroup/sandbox
+
+# all the controllers now available
+cat /sys/fs/cgroup/sandbox/cgroup.controllers
+
+# notice how many more files there are now
+ls /sys/fs/cgroup/sandbox
 ```
 
 We did it! We went ahead and added all the possible controllers but normally you should just add just the ones you need. If you want to learn more about what each of them does, [the kernel docs are quite readable][kernel].
@@ -71,14 +98,26 @@ Let's get a third terminal going. From your host OS (Windows or macOS or your ow
 So, let's go three little exercises of what we can do with a cgroup. First let's make it so the unshared environment only has access to 80MB of memory instead of all of it.
 
 ```bash
-apt-get install htop # a cool visual representation of CPU and RAM being used
-htop # from #3 so we can watch what's happening
+# a cool visual representation of CPU and RAM being used
+apt-get install htop
 
-yes | tr \\n x | head -c 1048576000 | grep n # run this from #1 terminal and watch it in htop to see it consume about a gig of RAM and 100% of CPU core
-kill -9 <PID of yes> # from #2, (you can get the PID from htop) to stop the CPU from being pegged and memory from being consumed
-cat /sys/fs/cgroup/sandbox/memory.max # should see max, so the memory is unlimited
-echo 83886080 > /sys/fs/cgroup/sandbox/memory.max # set the limit to 80MB of RAM (the number is 80MB in bytes)
-yes | tr \\n x | head -c 1048576000 | grep n # from inside #1, see it limit the RAM taken up; because the RAM is limited, the CPU usage is limited
+# from #3 so we can watch what's happening
+htop
+
+# run this from #1 terminal and watch it in htop to see it consume about a gig of RAM and 100% of CPU core
+yes | tr \\n x | head -c 1048576000 | grep n
+
+# from #2, (you can get the PID from htop) to stop the CPU from being pegged and memory from being consumed
+kill -9 <PID of yes>
+
+# should see max, so the memory is unlimited
+cat /sys/fs/cgroup/sandbox/memory.max
+
+# set the limit to 80MB of RAM (the number is 80MB in bytes)
+echo 83886080 > /sys/fs/cgroup/sandbox/memory.max
+
+# from inside #1, see it limit the RAM taken up; because the RAM is limited, the CPU usage is limited
+yes | tr \\n x | head -c 1048576000 | grep n
 ```
 
 I think this is very cool. We just made it so our unshared environment only has access to 80MB of RAM and so despite there being a script being run to literally just consume RAM, it was limited to only consuming 80MB of it.
@@ -86,12 +125,20 @@ I think this is very cool. We just made it so our unshared environment only has 
 However, as you saw, the user inside of the container could still peg the CPU if they wanted to. Let's fix that. Let's only give them 5% of a core.
 
 ```bash
-yes > /dev/null # inside #1 / the cgroup/unshare – this will peg one core of a CPU at 100% of the resources available, see it peg 1 CPU
-kill -9 <PID of yes> # from #2, (you can get the PID from htop) to stop the CPU from being pegged
+# inside #1 / the cgroup/unshare – this will peg one core of a CPU at 100% of the resources available, see it peg 1 CPU
+yes > /dev/null
 
-echo '5000 100000' > /sys/fs/cgroup/sandbox/cpu.max # from #2 this allows the cgroup to only use 5% of a CPU
-yes > /dev/null # inside #1 / the cgroup/unshare – this will peg one core of a CPU at 5% since we limited it
-kill -9 <PID of yes> # from #2, to stop the CPU from being pegged, get the PID from htop
+# from #2, (you can get the PID from htop) to stop the CPU from being pegged
+kill -9 <PID of yes>
+
+# from #2 this allows the cgroup to only use 5% of a CPU
+echo '5000 100000' > /sys/fs/cgroup/sandbox/cpu.max
+
+# inside #1 / the cgroup/unshare – this will peg one core of a CPU at 5% since we limited it
+yes > /dev/null
+
+# from #2, to stop the CPU from being pegged, get the PID from htop
+kill -9 <PID of yes>
 ```
 
 Pretty cool, right? Now, no matter how bad of code we run inside of our chroot'd, unshare'd, cgroup'd environment, we cannot take more than 5% of a CPU core.
@@ -110,12 +157,20 @@ but you'll see it written as `:(){ :|:& };:` where `:` is the name of the functi
 So someone could run a fork bomb on our system right now and it'd limit the blast radius of CPU and RAM but creating and destroying so many processes still carries a toll on the system. What we can do to more fully prevent a fork bomb is limit how many PIDs can be active at once. Let's try that.
 
 ```bash
-cat /sys/fs/cgroup/sandbox/pids.current # See how many processes the cgroup has at the moment
-cat /sys/fs/cgroup/sandbox/pids.max # See how many processes the cgroup can create before being limited (max)
-echo 3 > /sys/fs/cgroup/sandbox/pids.max # set a limit that the cgroup can only run 3 processes at a time
-for a in $(seq 1 5); do sleep 15 & done # this runs 5 15 second processes that run and then stop. run this from within #2 and watch it work. now run it in #1 and watch it not be able to. it will have to retry several times
+# See how many processes the cgroup has at the moment
+cat /sys/fs/cgroup/sandbox/pids.current
 
-:(){ :|:& };: # DO NOT RUN THIS ON YOUR COMPUTER. This is a fork bomb. If not accounted for, this would bring down your computer. However we can safely run inside our #1 because we've limited the amount of PIDs available. It will end up spawning about 100 processes total but eventually will run out of forks to fork.
+# See how many processes the cgroup can create before being limited (max)
+cat /sys/fs/cgroup/sandbox/pids.max
+
+# set a limit that the cgroup can only run 3 processes at a time
+echo 3 > /sys/fs/cgroup/sandbox/pids.max
+
+# this runs 5 15 second processes that run and then stop. run this from within #2 and watch it work. now run it in #1 and watch it not be able to. it will have to retry several times
+for a in $(seq 1 5); do sleep 15 & done
+
+# DO NOT RUN THIS ON YOUR COMPUTER. This is a fork bomb. If not accounted for, this would bring down your computer. However we can safely run inside our #1 because we've limited the amount of PIDs available. It will end up spawning about 100 processes total but eventually will run out of forks to fork.
+:(){ :|:& };:
 ```
 
 Attack prevented! 3 processes is way too few for anyone to do anything meaningful but by limiting the max PIDs available it allows you to limit what damage could be done. I'll be honest, this is the first time I've run a fork bomb on a computer and it's pretty exhilirating. I felt like I was in the movies Hackers. [Hack the planet!][hackers].

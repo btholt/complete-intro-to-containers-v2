@@ -30,7 +30,7 @@ So let's create a chroot'd environment now that's isolated using namespaces usin
 ``bash
 exit # from our chroot'd environment if you're still running it, if not skip this
 
-# install debootstrap
+## Install debootstrap
 
 ```bash
 apt-get update -y
