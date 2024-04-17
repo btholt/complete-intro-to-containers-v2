@@ -62,6 +62,7 @@ The second command will let you see that by default Bun uses Debian.
 ## A few other runtimes
 
 ```bash
+# you don't have to run all of these, just wanted to show you the variety of what's available
 docker run -it ruby:3.3
 docker run -it golang:1.22.2
 docker run -it rust:1.77.2
