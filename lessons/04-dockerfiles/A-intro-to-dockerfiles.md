@@ -19,6 +19,8 @@ FROM node:20
 CMD ["node", "-e", "console.log(\"hi lol\")"]
 ```
 
+[⛓️ Link to the Dockerfile][dockerfile]
+
 The first thing on each line (`FROM` and `CMD` in this case) are called _instructions_. They don't technically have to be all caps but it's convention to do so so that the file is easier to read. Each one of these instruction incrementally changes the container from the state it was in previously, adding what we call a _layer_.
 
 Let's go ahead and build our container. Run (from inside of the directory of where your Dockerfile is)
@@ -71,3 +73,4 @@ You can version your containers and hold on to older ones, just in case!
 [debian]: https://hub.docker.com/_/debian/
 [docker-node]: https://github.com/nodejs/docker-node/blob/master/Dockerfile-debian.template
 [cattle]: http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/
+[dockerfile]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/intro-to-dockerfiles/Dockerfile
