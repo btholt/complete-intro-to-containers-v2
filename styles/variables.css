@@ -20,6 +20,7 @@
   --icons: var(--highlight);
   --footer-icons: var(--highlight);
 
-  --emphasized-bg: #dce8ff;
+  --code-bg: #dce8ff;
+  --emphasized-bg: lightgoldenrodyellow;
   --emphasized-border: #aab6d2;
 }

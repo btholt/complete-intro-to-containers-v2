@@ -543,6 +543,6 @@ pre code {
 code,
 pre code,
 pre code.hljs {
-  background-color: var(--emphasized-bg);
+  background-color: var(--code-bg);
   color: #000;
 }
