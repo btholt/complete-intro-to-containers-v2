@@ -32,7 +32,8 @@ This is how you do bind mounts. It's a bit verbose but necessary. Let's dissect 
 - The target is where we want those files to be mounted in the container. Here we're putting it in the spot that NGINX is expecting.
 - As a side note, you can mount as many mounts as you care to, and you mix bind and volume mounts. NGINX has a default config that we're using but if we used another bind mount to mount an NGINX config to `/etc/nginx/nginx.conf` it would use that instead.
 
-Again, it's preferable to bake your own container so you don't have to ship the container and the code separately; you'd rather just ship one thing that you can run without much ritual nor ceremony. But this is a useful trick to have in your pocket.
+Again, it's preferable to bake your own container so you don't have to ship the container and the code separately; you'd rather just ship one thing that you can run without much ritual nor ceremony. But this is a useful trick to have in your pocket. It's kind of like [serve][serve] but with real NGINX.
 
 [storage]: https://docs.docker.com/storage/
 [project]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/static-asset-project
+[serve]: https://github.com/vercel/serve
