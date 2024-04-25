@@ -1,3 +1,19 @@
+---
+description: >-
+  Congratulations on completing the Complete Intro to Containers, version 2!
+  This course covers containers, Docker, Kubernetes, and related tools, making
+  systems-level concepts approachable. Topics include Dockerfiles, container
+  optimization, networking, Docker Compose, Kubernetes, and more, providing
+  essential knowledge in today's container-driven workflows.
+keywords:
+  - containers
+  - Docker
+  - Kubernetes
+  - Dockerfiles
+  - container optimization
+  - networking
+  - DevOps
+---
 That's it Congratulations on completing the Complete Intro to Containers, version 2. On one hand, I feel like this course is pretty dense and a lot of systems-level stuff is thrown at you in a short amount of time. On the other hand, I feel like all of this stuff is actually more approachable than it seems at first impression. I started doing this stuff when I worked at Microsoft because I wanted to be able to sound intelligent when I spoke to the smart people making Azure work and it turns out I really like it. Every since I've always been in and around cloud stuff and it really started with my love for mucking around with containers.
 
 Let's review what we talked about:

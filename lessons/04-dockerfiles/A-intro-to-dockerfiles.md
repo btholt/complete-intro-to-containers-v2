@@ -1,4 +1,16 @@
 ---
+description: >-
+  Learn how to build Docker containers with a Dockerfile, the key instructions
+  involved, and the concept of disposable containers. Discover the power of
+  creating container images incrementally by leveraging existing images in the
+  Docker ecosystem.
+keywords:
+  - Docker containers
+  - Dockerfile
+  - building containers
+  - disposable containers
+  - docker run command
+  - container versioning
 ---
 
 So far we've been focusing a lot on running containers and haven't much dug into building them. This is on purpose because most of benefit of containers for developers comes from the running of containers. If you learn one thing, it should be how to run them. In fact I'll event venture to say that _most_ developers really only ever need to know how to run them. But you, you're going to learn how to write them. It's an extra superpower.

@@ -1,3 +1,18 @@
+---
+description: >-
+  Explore alternatives to Docker for container building, runtime tools,
+  runtimes, orchestrators, and desktop apps. Learn about tools like Podman,
+  Buildah, containerd, gVisor, OpenShift, Nomad, and more as options in the
+  container ecosystem.
+keywords:
+  - Docker alternatives
+  - container tools
+  - container runtimes
+  - orchestration tools
+  - Podman
+  - containerd
+  - Kubernetes alternatives
+---
 So far we have only talked about Docker and there's a pretty good reason for that: for _personal_ use or _developer_ use, Docker is pretty much the indisputable champion. It has all the developer experience bells and whistles, all the mindshare of developers everywhere, and even all the other tools we are about to talk about like to tout their Docker compatability. However it good to keep in mind that Docker is a for-profit company and thus they are trying to align your incentives to there's and vice versa. It's good to know what else exists out there.
 
 I don't have a lot of experience with any of these as I've exclusively used Docker my whole career, but I wanted to get these names out in front of you so you recognize what they are.

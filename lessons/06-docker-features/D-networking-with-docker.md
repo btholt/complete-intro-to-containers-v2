@@ -1,4 +1,18 @@
 ---
+description: >-
+  Learn how to perform manual networking with Docker, understanding Docker
+  Compose and Kubernetes roles. Explore connecting a Node.js app to a MongoDB
+  database using Docker networks. Discover basic networking concepts within
+  Docker, such as bridge networks, and connect containers through custom
+  networks.
+keywords:
+  - Docker networking
+  - manual networking
+  - Node.js app
+  - MongoDB database
+  - bridge networks
+  - connecting containers
+  - basic Docker networking
 ---
 
 This is not going to be a deep dive into how networking works. Networking is a deep, deep pool of knowledge and merits entire courses to understand. Just worrying about networking is some people's jobs due to the immense surface area of the subject. Instead, I want to just peek under the covers of how to do manual networking with Docker so you can understand what Docker Compose and Kubernetes do for you.

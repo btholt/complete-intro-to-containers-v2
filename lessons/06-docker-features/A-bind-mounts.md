@@ -1,4 +1,17 @@
 ---
+description: >-
+  Learn about using volumes and bind mounts in Docker containers to handle
+  stateful operations, along with the differences between them. Bind mounts
+  enable flexible file access between the host computer and container, offering
+  a practical solution for testing or development scenarios.
+keywords:
+  - Docker
+  - volumes
+  - bind mounts
+  - stateful containers
+  - containerization
+  - NGINX
+  - Dockerfile
 ---
 
 So far we've been dealing with self-contained containers. Normally this is all you ever want: containers that can spin up and spin down as frequently as they need to. They're ephemeral, temporary, and disposable. None of these containers are "snowflakes". When I say snowflakes, picture you're running a server that's serving a Wordpress site. Imagine setting up this server, SSH'ing into the server, and setting everything up to be just right and tuned to the exact way you need it. This would be a snowflake server: if someone goes and deletes this server, you're screwed. You have to go and spend a bunch of time re-setting up this server. This is exactly the sort of thing we're trying to avoid with containers. These are the "pet" containers we talked about earlier. We want to make our servers easy to reproduce whenever we want so we can spin up and spin down servers at will. These are the "cattle" containers we talked about.

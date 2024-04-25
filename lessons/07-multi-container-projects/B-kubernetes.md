@@ -1,4 +1,18 @@
 ---
+description: >-
+  Learn about containers and Kubernetes, where containers are the building
+  blocks and Kubernetes orchestrates them. Understand fundamental concepts like
+  control planes, nodes, pods, services, and deployments. Explore how to set up
+  Kubernetes using tools like kubectl, minikube, and Docker Desktop for local
+  development.
+keywords:
+  - containers
+  - Kubernetes
+  - orchestration
+  - control plane
+  - nodes
+  - pods
+  - services
 ---
 
 I like to tell people that containers are the "simple" (simple is a relative term here) part and Kubernetes is the "hard" (hard isn't relative; Kubernetes is really hard) part. So if this feels hard, it's because it is.

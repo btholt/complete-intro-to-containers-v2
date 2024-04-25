@@ -1,4 +1,15 @@
 ---
+description: >-
+  Learn how to make your Node.js app container faster, cheaper, and more secure
+  by optimizing its size. Reduce vulnerabilities and hosting costs with tips on
+  minimizing container size using Alpine Linux in Docker.
+keywords:
+  - Node.js
+  - container optimization
+  - Alpine Linux
+  - Docker
+  - security
+  - cost-effective hosting
 ---
 
 We've now built a nice little container for our Node.js app and we absolutely could ship it as-is to production. However there's a few things we can do to make things even faster, cheaper, and more secure.

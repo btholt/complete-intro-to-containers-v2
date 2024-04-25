@@ -1,4 +1,17 @@
 ---
+description: >-
+  Learn how to use Kompose to convert a docker-compose.yml configuration to
+  Kubernetes, scale services using Kubernetes, set up LoadBalancer for exposing
+  services, and interact with Kubernetes cluster using kubectl. Explore
+  deployment options on Azure AKS, Amazon EKS, and Google GKE.
+keywords:
+  - Kompose
+  - Kubernetes scaling
+  - LoadBalancer
+  - kubectl
+  - Azure AKS
+  - Amazon EKS
+  - Google GKE
 ---
 
 Next tool we're going to use is one called [Kompose][kompose]. I'm showing you this tool because it's how I start out with Kubernetes when I have a project that I want to use with it. Kompose converts a docker-compose.yml configuration to a Kubernetes configuration. I find this to much more approachable than starting with the myriad configurations you need to get Kubernetes going.

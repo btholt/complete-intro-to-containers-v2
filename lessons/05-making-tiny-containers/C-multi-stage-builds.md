@@ -1,4 +1,13 @@
 ---
+description: >-
+  Learn how to optimize Docker images using multistage builds with Node.js and
+  Alpine, reducing container size significantly by eliminating unnecessary
+  dependencies like npm. Follow a tutorial on building a Dockerfile with
+  multiple stages and leveraging Alpine for smaller, more efficient containers.
+keywords:
+  - Docker multistage build
+  - Node.js Alpine Docker image
+  - optimize Docker image size
 ---
 
 Hey, we're already half-way to ridiculous, let's make our image EVEN SMALLER. Technically we only need `npm` to build our app, right? We don't actually need it to run our app. Docker allows you to have what it called multistage builds, we it uses one container to build your app and another to run it. This can be useful if you have big dependencies to build your app but you don't need those dependencies to actually run the app. A C++ or Rust app might be a good example of that: they need big tool chains to compile the apps but the resulting binaries are smaller and don't need those tools to actually run them. Or one perhaps more applicable to you is that you don't need the TypeScript or Sass compiler in production, just the compiled files. We'll actually do that here in a sec, but let's start here with eliminating `npm`.

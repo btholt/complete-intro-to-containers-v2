@@ -1,5 +1,17 @@
 ---
-title: "Build a More Complicated Node.js App"
+title: Build a More Complicated Node.js App
+description: >-
+  Learn how to containerize a Node.js app using Fastify, npm, and Docker. Follow
+  steps for npm installation, Dockerfile creation, and handling permissions
+  issues within the container.
+keywords:
+  - Node.js
+  - Fastify
+  - npm install
+  - Docker
+  - containerize
+  - Dockerfile
+  - permissions issues
 ---
 
 Okay, all looking good so far. Let's make this app go one step further. Let's have it have an npm install step! In the directory where your app is, put this:

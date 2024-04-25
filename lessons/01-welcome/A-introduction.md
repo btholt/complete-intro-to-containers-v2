@@ -1,6 +1,17 @@
 ---
-description: 
+description: >-
+  Complete Intro to Containers course by Brian Holt aims to demystify
+  containers, making them accessible to developers regardless of expertise level
+  in JavaScript. The course covers Linux basics, usage on macOS and Windows,
+  emphasizing the importance of containers in modern tech environments.
 keywords:
+  - containers
+  - intro
+  - developers
+  - Linux basics
+  - macOS
+  - Windows
+  - Brian Holt
 ---
 
 ## Course Objective

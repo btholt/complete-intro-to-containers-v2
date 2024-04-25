@@ -1,4 +1,18 @@
 ---
+description: >-
+  Learn how to use Docker Compose to coordinate multiple containers for
+  development environments efficiently. Simplify defining relationships between
+  containers using a YAML file, making it easy to manage complex setups with one
+  command. Explore CI/CD integration possibilities and enhance development
+  productivity by leveraging Docker Compose features.
+keywords:
+  - Docker Compose
+  - multiple containers
+  - development environments
+  - CI/CD scenarios
+  - YAML file
+  - containers relationship
+  - productivity
 ---
 
 This may be one of the most useful features you learn about Docker. We've been mixing various different facets of deploying your app to production and creating development environments. This feature in particular is geared much more for development environments. Many times when you're developing containers you're not in just a single container environment (though that does happen too.) When this happens, you need to coordinate multiple containers when you're doing local dev and you've seen in the previous chapter, networking, that it's possible if a bit annoying.

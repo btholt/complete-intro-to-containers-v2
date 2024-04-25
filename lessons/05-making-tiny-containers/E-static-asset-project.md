@@ -1,4 +1,17 @@
 ---
+description: >-
+  Learn how to build a front end website using Astro, React, TypeScript, and
+  Tailwind with step-by-step instructions. Create a multi-stage Dockerfile to
+  build and serve the project with NGINX, simplifying static file serving for
+  your users.
+keywords:
+  - Astro
+  - React
+  - TypeScript
+  - Tailwind
+  - Dockerfile
+  - NGINX
+  - static assets
 ---
 
 We're going to do a project now! Feel free to attempt the project first and then follow along with me as I code the answer.

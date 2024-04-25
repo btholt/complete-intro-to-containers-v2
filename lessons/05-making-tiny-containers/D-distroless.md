@@ -1,4 +1,16 @@
 ---
+description: >-
+  Learn about the differences between Alpine and Distroless for Docker
+  containers, focusing on edge cases with Alpine and the stripped-down nature of
+  Distroless. Explore alternative options like Wolfi, Red Hat's Universal Base
+  Image Micro, and Google's Distroless projects, emphasizing security and
+  minimalism.
+keywords:
+  - Alpine
+  - Distroless
+  - Docker containers
+  - security
+  - minimalism
 ---
 
 You may not want to use Alpine. [This blog post goes into depth][blog] but let me sum it up with two points:

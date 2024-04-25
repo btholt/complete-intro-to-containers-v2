@@ -1,4 +1,17 @@
 ---
+description: >-
+  Understand the importance of namespaces and cgroups for security and resource
+  management in server environments. Learn how namespaces can isolate processes
+  to enhance security and prevent unauthorized access in shared server
+  environments, beyond what chroot alone provides.
+keywords:
+  - namespaces
+  - cgroups
+  - security
+  - resource management
+  - chroot
+  - process isolation
+  - server environment
 ---
 
 While chroot is a pretty straightforward, namespaces and cgroups are a bit more nebulous to understand but no less important. Both of these next two features are for security and resource management.

@@ -1,4 +1,18 @@
 ---
+description: >-
+  Learn how to use containers to streamline setting up development environments,
+  illustrated with a Ruby on Rails example. Explore the benefits of using
+  Dockerfiles and bind mounts for efficient app development. Discover tools like
+  DevContainer CLI, Visual Studio, IntelliJ, and GitHub Codespaces that support
+  dev containers.
+keywords:
+  - containers
+  - development environments
+  - Dockerfiles
+  - bind mounts
+  - DevContainer CLI
+  - Visual Studio
+  - GitHub Codespaces
 ---
 
 So far we've talking about taking an app and using containers to prepare the apps to run. This is an obvious use case for them and one you're going to use a lot. But let's talk about a different use case for them: building development environments for your apps.

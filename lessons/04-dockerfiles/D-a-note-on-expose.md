@@ -1,4 +1,13 @@
 ---
+description: >-
+  Understanding the usage and limitations of the `EXPOSE` instruction in Docker,
+  its intended purpose to expose container ports to the host machine, and the
+  optional `-P` flag for mapping ports to random host ports. Considerations
+  include documentation benefits and deliberate port mapping.
+keywords:
+  - Docker EXPOSE instruction
+  - Docker port mapping
+  - Dockerfile port documentation
 ---
 
 This was a point of confusion for me so I'm going to try to clear it up for you. There is an instruction called `EXPOSE <port number>` that its intended use is to expose ports from within the container to the host machine. However if we don't do the `-p 3000:3000` it still isn't exposed so in reality this instruction doesn't do much. You don't need `EXPOSE`.

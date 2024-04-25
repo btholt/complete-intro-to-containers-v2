@@ -1,5 +1,15 @@
 ---
-title: "Docker CLI"
+title: Docker CLI
+description: >-
+  Explore Docker CLI features like pull, push, inspect, and more. Learn how to
+  manage containers efficiently with commands such as pause, unpause, exec,
+  import, export, history, info, top, rm, rmi, logs, restart, and search.
+keywords:
+  - Docker CLI
+  - container management
+  - Docker commands
+  - Docker features
+  - Docker container operations
 ---
 
 Let's take a look at some more cool features of the Docker CLI.

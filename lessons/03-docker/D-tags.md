@@ -1,4 +1,18 @@
 ---
+description: >-
+  Learn how to manage Docker container versions, from using the latest tag to
+  specifying specific versions for Node.js and exploring Alpine Linux for
+  minimalistic container deployments. Discover the benefits of choosing
+  lightweight Alpine containers over larger Ubuntu or Debian images for faster
+  deployment, reduced storage costs, and enhanced security.
+keywords:
+  - Docker containers
+  - version management
+  - Alpine Linux
+  - Node.js
+  - container deployment
+  - security
+  - minimalist containers
 ---
 
 So far we've just been running containers with random tags that I chose. If you run `docker run -it node` the tag implicitly is using the `latest` tag. When you say `docker run -it node`, it's the same as saying `docker run -it node:latest`. The `:latest` is the tag. This allows you to run different versions of the same container, just like you can install React version 17 or React version 18: some times you don't want the latest. Let's say you have a legacy application at your job and it depends on running on Node.js 12 (update your app, Node.js is already past end-of-life) then you can say

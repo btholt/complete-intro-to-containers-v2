@@ -1,4 +1,16 @@
 ---
+description: >-
+  Learn how to use Docker to run and interact with container images like Alpine
+  and Ubuntu, execute commands within containers, manage running containers in
+  the background, and clean up containers efficiently.
+keywords:
+  - Docker
+  - container images
+  - Alpine
+  - Ubuntu
+  - running containers
+  - manage containers
+  - clean up containers
 ---
 
 ### Docker Images with Docker

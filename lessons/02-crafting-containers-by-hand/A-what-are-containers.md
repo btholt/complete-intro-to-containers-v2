@@ -1,4 +1,18 @@
 ---
+description: >-
+  Understand the simplicity of containers by exploring how they leverage a few
+  Linux kernel features for isolation, contrasting with managing bare metal
+  servers or virtual machines. Discover the advantages and trade-offs associated
+  with each approach, leading to the emergence of containers as a cost-effective
+  and efficient solution for deploying code.
+keywords:
+  - containers
+  - Linux kernel features
+  - bare metal servers
+  - virtual machines
+  - resource management
+  - security
+  - deploying code
 ---
 
 Containers are probably simpler than you think they are. Before I took a deep dive into what they are, I was very intimidated by the concept of what containers were. I thought they were for one super-versed in Linux and sysadmin type activties. In reality, the core of what containers are is just a few features of the Linux kernel duct-taped together. Honestly, there's no single concept of a "container": it's just using a few features of Linux together to achieve isolation. That's it.

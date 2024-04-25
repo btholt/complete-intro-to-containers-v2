@@ -1,5 +1,16 @@
 ---
-title: "Making Our Own Alpine Node.js Container"
+title: Making Our Own Alpine Node.js Container
+description: >-
+  Learn how to create a custom Node.js Alpine container by installing system
+  dependencies and setting up a minimal Linux container with Node.js and npm.
+  Explore steps to optimize the container size and user setup, mirroring
+  practices from official containers.
+keywords:
+  - Node.js Alpine container
+  - Dockerfile tutorial
+  - system dependencies installation
+  - Alpine Linux setup
+  - custom container optimization
 ---
 
 ## Making our own Node.js Alpine container

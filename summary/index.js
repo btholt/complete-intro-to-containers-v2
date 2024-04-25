@@ -21,6 +21,7 @@ async function exec() {
   for (let section of list) {
     for (let lesson of section.lessons) {
       await summarize(section, lesson);
+      console.log("=========");
     }
   }
 }
@@ -36,6 +37,7 @@ async function summarize(section, lesson) {
   } else {
     try {
       let res = await api.sendMessage(prompt);
+      console.log("res", res);
       const parsed = JSON.parse(res.text);
 
       const newData = Object.assign({}, data, parsed);

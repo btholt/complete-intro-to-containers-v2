@@ -1,4 +1,14 @@
 ---
+description: >-
+  Learn how Docker optimizes build processes by reusing cached layers and
+  rebuilding only what has changed, like with the COPY instruction. Discover
+  strategies to speed up container-building, such as breaking COPY into multiple
+  instructions for efficient npm ci runs in Node.js applications.
+keywords:
+  - Docker optimization
+  - container building
+  - npm ci optimization
+  - speed up Docker builds
 ---
 
 Go make any change to your Node.js app. Now re-run your build process. Docker is smart enough to see the your `FROM`, `RUN`, and `WORKDIR` instructions haven't changed and wouldn't change if you ran them again so it uses the same layers it cached from the previous but it can see that your `COPY` is different since files changed between last time and this time, so it begins the build process there and re-runs all instructions after that. Pretty smart, right? This is the same mechanism that Docker uses when you pull a new container to download it in pieces. Each one of those corresponds to a layer.

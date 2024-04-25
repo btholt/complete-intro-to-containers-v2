@@ -1,5 +1,15 @@
 ---
 title: cgroups
+description: >-
+  In the Frontend Masters course "Complete Intro to Containers" taught by Brian Holt, participants learn how to manage server resources on high-traffic shopping days like Black Friday. The course introduces cgroups, a technology developed by Google, which safeguards sites from crashes by limiting resource usage per process, ensuring stability and preventing malicious overloads. This essential tool enhances server efficiency and security in shared environments, enabling robust e-commerce operations.
+keywords:
+  - Frontend Masters Containers
+  - Brian Holt Containers Course
+  - cgroups technology
+  - server resource management
+  - prevent server crashes
+  - e-commerce server stability
+  - Google cgroups implementation
 ---
 
 Okay, so now we've hidden the processes from Eve so Bob and Alice can engage in commerce in privacy and peace. So we're all good, right? They can no longer mess each other, right? Not quite. We're almost there.

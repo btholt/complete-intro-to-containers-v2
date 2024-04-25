@@ -1,5 +1,18 @@
 ---
-title: "Build a Node.js App"
+title: Build a Node.js App
+description: >-
+  Learn how to set up a basic Node.js application inside Docker with detailed
+  steps on copying files, exposing ports, and user permissions. Enhance your
+  Dockerfile skills by optimizing file structures and using instructions like
+  COPY, USER, and WORKDIR effectively.
+keywords:
+  - Dockerfile
+  - Node.js application
+  - Docker setup
+  - copy files in Docker
+  - expose ports in Docker
+  - user permissions in Docker
+  - WORKDIR instruction
 ---
 
 So now let's dig into some more advance things you can do with a Dockerfile. Let's first make our project a real Node.js application. Make a file called `index.js` and put this in there.

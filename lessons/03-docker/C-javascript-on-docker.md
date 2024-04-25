@@ -1,4 +1,16 @@
 ---
+description: >-
+  Learn how to run Node.js, Deno, Bun, and other runtimes in containers using
+  Docker images. Explore different Linux distros like Debian, Alpine, and CoreOS
+  for your containerized applications.
+keywords:
+  - Node.js
+  - Docker
+  - containers
+  - Linux distros
+  - Deno
+  - Bun
+  - runtimes
 ---
 
 ## Node.js on Containers

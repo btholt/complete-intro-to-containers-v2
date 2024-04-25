@@ -1,4 +1,13 @@
 ---
+description: >-
+  Learn about the differences between bind mounts and volumes in Docker, how to
+  persist data using volumes for containers, and create a Node.js app with
+  Docker volumes. Understand the benefits of using volumes over bind mounts in
+  Docker for data persistence and manageability.
+keywords:
+  - Docker bind mounts vs volumes
+  - persist data in Docker containers
+  - create Node.js app with Docker volumes
 ---
 
 Bind mounts are great for when you need to share data between your host and your container as we just learned. Volumes, on the other hand, are so that your containers can maintain state between runs. So if you have a container that runs and the next time it runs it needs the results from the previous time it ran, volumes are going to be helpful. Volumes can not only be shared by the same container-type between runs but also between different containers. Maybe if you have two containers and you want to log to consolidate your logs to one place, volumes could help with that.

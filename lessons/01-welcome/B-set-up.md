@@ -1,6 +1,15 @@
 ---
-description: 
+description: >-
+  Learn about Docker Desktop, a convenient desktop app GUI to control Docker on
+  your computer. Follow installation instructions for Windows, macOS, and Linux
+  provided in the document. Understand system requirements, internet usage, and
+  tools used in the course.
 keywords:
+  - Docker Desktop
+  - installation instructions
+  - system requirements
+  - internet usage
+  - tools FAQ
 ---
 
 ## Docker Desktop

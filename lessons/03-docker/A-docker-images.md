@@ -1,4 +1,18 @@
 ---
+description: >-
+  Learn how to work with Docker images without Docker by unpacking, exporting,
+  and creating a new isolated environment manually through commands. Understand
+  the core concepts behind Docker such as namespace isolation, cgroups
+  limitation, and chroot environment while exploring functionalities like
+  networking and volumes.
+keywords:
+  - Docker images
+  - Docker Hub
+  - container environment
+  - namespace isolation
+  - cgroups
+  - chroot
+  - environment setup
 ---
 
 These pre-made containers are called _images_. They basically dump out the state of the container, package that up, and store it so you can use it later. So let's go nab one of these image and run it! We're going to do it first without Docker to show you that you actually already knows what's going on.
