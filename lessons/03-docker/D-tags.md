@@ -4,10 +4,10 @@
 So far we've just been running containers with random tags that I chose. If you run `docker run -it node` the tag implicitly is using the `latest` tag. When you say `docker run -it node`, it's the same as saying `docker run -it node:latest`. The `:latest` is the tag. This allows you to run different versions of the same container, just like you can install React version 17 or React version 18: some times you don't want the latest. Let's say you have a legacy application at your job and it depends on running on Node.js 12 (update your app, Node.js is already past end-of-life) then you can say
 
 ```bash
-docker run -it node:12 bash
+docker run -it node:20 bash
 ```
 
-Once in the shell, run `node --version` and you'll see the Node.js version is 12._._! Neat! This is helpful because now we can fix our Node.js version to the one our app expects. Hop back over to [the Docker Hub page for the node container][node]. Take a look at all the version of the node container you can download. Let's try another one.
+Once in the shell, run `node --version` and you'll see the Node.js version is 20._._! Neat! This is helpful because now we can fix our Node.js version to the one our app expects. Hop back over to [the Docker Hub page for the node container][node]. Take a look at all the version of the node container you can download. Let's try another one.
 
 ```bash
 docker run node:20-alpine cat /etc/issue

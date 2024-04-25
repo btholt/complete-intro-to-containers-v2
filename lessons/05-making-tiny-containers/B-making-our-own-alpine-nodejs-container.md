@@ -82,6 +82,6 @@ CMD ["node", "index.js"]
 
 [⛓️ Link to the Dockerfile][dockerfile-file]
 
-It works! We're down to 89MB (compared to 150MB-ish with the official `node:12-alpine` container). Honestly, I'm not entirely sure what we cut out from the other `node:20-alpine` container but it's probably important. Again, I'd stick to the official containers where they exist. But hey, we learned how to add a user and install system dependencies! Let's make it even small because why the hell not.
+It works! We're down to 89MB (compared to 150MB-ish with the official `node:20-alpine` container). Honestly, I'm not entirely sure what we cut out from the other `node:20-alpine` container but it's probably important. Again, I'd stick to the official containers where they exist. But hey, we learned how to add a user and install system dependencies! Let's make it even small because why the hell not.
 
-[dockerfile-file]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/making-our-own-alpine-nodejs-container/Dockerfile
+[dockerfile-file]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/make-our-own-alpine-nodejs-container/Dockerfile

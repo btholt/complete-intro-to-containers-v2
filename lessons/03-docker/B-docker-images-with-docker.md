@@ -64,7 +64,7 @@ Now you can refer to these by a name you set. But now if you tried it again, it'
 In the future you can just do
 
 ```bash
-docker run --rm -dit --name my-ubuntu ubuntu:bionic
+docker run --rm -dit --name my-ubuntu ubuntu:jammy
 docker kill my-ubuntu
 ```
 
