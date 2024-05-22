@@ -28,7 +28,7 @@ fastify.get("/", function handler(request, reply) {
 });
 
 // Run the server!
-fastify.listen({ port: 8080 }, (err) => {
+fastify.listen({ port: 8080, host: "0.0.0.0" }, (err) => {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
@@ -110,7 +110,7 @@ docker run -it -p 8080:8080 --name my-app --rm --init more-complicated-app
 
 Now try building and running your container. It should work now! Yay!
 
-> **NOTE:** Make sure you don't bind your app to host `localhost` (like if you put `localhost` instead of `0.0.0.0` in the host in our Fastify app.) This will make it so the app is only available _inside_ the container. If you see `connection reset` instead of when you're expecting a response, this a good candidate for what's happening (because this definitely didn't _just_ happen to me 😂.)
+> **NOTE:** Make sure you don't bind your app to host `localhost` (like if you put `localhost` instead of `0.0.0.0` in the host in our Fastify app.) This will make it so the app is only available _inside_ the container. If you see `connection reset` instead of when you're expecting a response, this a good candidate for what's happening (because this definitely didn't _just_ happen to me 😂.) You need to have the `host: "0.0.0.0"` in your Node.js app
 
 [node-file]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/build-a-more-complicated-nodejs-app/index.js
 [package-file]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/build-a-more-complicated-nodejs-app/package.json

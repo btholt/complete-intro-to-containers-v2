@@ -18,7 +18,7 @@ You may not want to use Alpine. [This blog post goes into depth][blog] but let m
 1. Alpine made some design choices that have some extremely rare edge cases that can cause failures and be _very_ hard to diagnose. This arises from their choice of replacing the typical `glibc` with `musl`. Read the blog post if you want to know more. Suffice to say, unless you're running Kubernetes at a large scale this shouldn't concern you; lots of people run Alpine and never see issues.
 1. Now Alpine isn't the only option!
 
-The three projects to look to here, [Wolfi (an open source project)][wolfi], [Red Hat's Universal Base Image Micro][ubi] and [Google's Distroless][distroless].
+The four projects to look to here, [Wolfi (an open source project)][wolfi], [Red Hat's Universal Base Image Micro][ubi], [Debian's slim variant][slim], and [Google's Distroless][distroless].
 
 You would be set with any of these. We are going to focus on Distroless because it is currently the most popular but feel free to experiment!
 
@@ -58,3 +58,4 @@ One note with the Dockerfile: notice we _just_ give it the Node.js file and _not
 [ubi]: https://catalog.redhat.com/software/base-images
 [node-file]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/distroless/index.js
 [dockerfile-file]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2/blob/main/distroless/Dockerfile
+[slim]: https://hub.docker.com/_/debian
