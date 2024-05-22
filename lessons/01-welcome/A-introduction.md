@@ -66,3 +66,4 @@ And hey, if you could take a second and [star the repo on GitHub][gh] I'd be sup
 [project-files]: https://github.com/btholt/projects-for-complete-intro-to-containers-v2
 [linux]: https://frontendmasters.com/courses/linux-command-line/
 [sqlitecloud]: https://sqlitecloud.io/
+[wsl2]: https://learn.microsoft.com/en-us/windows/wsl/install

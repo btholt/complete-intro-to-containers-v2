@@ -11,7 +11,7 @@
     "github": "btholt",
     "twitter": "holtbt"
   },
-  "description": "A starter kit for making really amazing courses, optimized for Frontend Masters",
+  "description": "Complete Intro to Containers course by Brian Holt aims to demystify containers, making them accessible to developers regardless of expertise level. In this course you will learn how to craft containers by hand, how to use Docker and its features, and how to use Docker in your development flows today.",
   "keywords": ["linux", "containers", "javascript", "node", "brian holt", "frontend masters", "docker", "nodejs", "kubernetes", "k8s", "cloud", "aws", "gcp", "azure", "sql", "sqlite"],
   "csvPath": "./out/lessons.csv"
 }
