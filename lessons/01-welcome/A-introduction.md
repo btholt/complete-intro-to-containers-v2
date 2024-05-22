@@ -34,7 +34,7 @@ This can also take a lot of bandwidth because we'll be downloading a lot of thin
 
 ## Where to File Issues
 
-I write these courses and take care to avoid making mistakes. However, when teaching hours of material, mistakes are inevitable, both here in the grammar and in the course with the material. However, I (and the wonderful team at Frontend Masters) are constantly correcting the mistakes so that those of you that come later get the best product possible. If you find an error, we'd love to fix it. The best way to do this is to [open a pull request or file an issue on the GitHub repo][issues]. While I'm always happy to chat and give advice on social media, I can't be tech support for everyone. And if you file it on GitHub, those who come later can Google the same answer you got.
+I write these courses and take care to avoid making mistakes. However, when teaching hours of material, mistakes are inevitable, both here in the grammar and in the course with the material. However, I (and the wonderful team at Frontend Masters) are constantly correcting the mistakes so that those of you that come later get the best product possible. If you find an error, we'd love to fix it. The best way to do this is to [open a pull request or file an issue on the GitHub repo][issue]. While I'm always happy to chat and give advice on social media, I can't be tech support for everyone. And if you file it on GitHub, those who come later can Google the same answer you got.
 
 ## Who Am I?
 
@@ -63,7 +63,7 @@ And hey, if you could take a second and [star the repo on GitHub][gh] I'd be sup
 [linkedin]: https://www.linkedin.com/in/btholt/
 [course]: https://frontendmasters.com/courses/complete-intro-containers-v2/
 [issue]: https://github.com/btholt/complete-intro-to-containers-v2/issues
-[project-files]: https://github.com/btholt/projects-for-complete-intro-to-containers-v2
+[project-files]: https://github.com/btholt/project-files-for-complete-intro-to-containers-v2
 [linux]: https://frontendmasters.com/courses/linux-command-line/
 [sqlitecloud]: https://sqlitecloud.io/
 [wsl2]: https://learn.microsoft.com/en-us/windows/wsl/install
