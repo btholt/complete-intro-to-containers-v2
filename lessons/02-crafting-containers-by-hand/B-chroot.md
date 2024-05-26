@@ -36,24 +36,22 @@ You should see something about failing to run a shell or not being able to find 
 
 Still not working! The problem is that these commands rely on libraries to power them and we didn't bring those with us. So let's do that too. Run `ldd /bin/bash`. This print out something like this:
 
-`bash
+```bash
 $ ldd /bin/bash
-  linux-vdso.so.1 (0x00007fffa89d8000)
-  libtinfo.so.5 => /lib/x86_64-linux-gnu/libtinfo.so.5 (0x00007f6fb8a07000)
-  libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f6fb8803000)
-  libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f6fb8412000)
-  /lib64/ld-linux-x86-64.so.2 (0x00007f6fb8f4b000)
-`
+	linux-vdso.so.1 (0x0000ffffbe221000)
+	libtinfo.so.6 => /lib/aarch64-linux-gnu/libtinfo.so.6 (0x0000ffffbe020000)
+	libc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffbde70000)
+	/lib/ld-linux-aarch64.so.1 (0x0000ffffbe1e8000)
+```
 
 These are the libraries we need for bash. Let's go ahead and copy those into our new environment.
 
-1. `mkdir /my-new-root/lib /my-new-root/lib64` or you can do `/my-new-root/lib{,64}` if you want to be fancy
-1. Then we need to copy all those paths (ignore the lines that don't have paths) into our directory. Make sure you get the right files in the right directory. In my case above (yours likely will be different) it'd be two commands:
-   1. `cp /lib/x86_64-linux-gnu/libtinfo.so.5 /lib/x86_64-linux-gnu/libdl.so.2 /lib/x86_64-linux-gnu/libc.so.6 /my-new-root/lib`
-   1. `cp /lib64/ld-linux-x86-64.so.2 /my-new-root/lib64`
+1. `mkdir /my-new-root/lib`
+1. Then we need to copy all those paths (ignore the lines that don't have paths) into our directory. Make sure you get the right files in the right directory. In my case above (yours likely will be different) it's:
+   1. `cp /lib/aarch64-linux-gnu/libtinfo.so.6 /lib/aarch64-linux-gnu/libc.so.6 /lib/ld-linux-aarch64.so.1 /my-new-root/lib`
 1. Do it again for `ls`. Run `ldd /bin/ls`
 1. Follow the same process to copy the libraries for `ls` into our `my-new-root`.
-   1. `cp /lib/x86_64-linux-gnu/libselinux.so.1 /lib/x86_64-linux-gnu/libpcre.so.3 /lib/x86_64-linux-gnu/libpthread.so.0 /my-new-root/lib`
+   1. `cp  /lib/aarch64-linux-gnu/libselinux.so.1 /lib/aarch64-linux-gnu/libc.so.6 /lib/ld-linux-aarch64.so.1 /lib/aarch64-linux-gnu/libpcre2-8.so.0 /my-new-root/lib`
 
 Now, finally, run `chroot /my-new-root bash` and run `ls`. You should successfully see everything in the directory. Now try `pwd` to see your working directory. You should see `/`. You can't get out of here! This, before being called containers, was called a jail for this reason. At any time, hit CTRL+D or run `exit` to get out of your chrooted environment.
 
