@@ -40,24 +40,21 @@ So let's create a chroot'd environment now that's isolated using namespaces usin
 
 **NOTE**: This next command downloads about 150MB and takes at least a few minutes to run. Unlike Docker images, this will redownload it _every_ time you run it and does no caching.
 
-````bash
+```bash
 # from our chroot'd environment if you're still running it, if not skip this
 exit
 
 ## Install debootstrap
-
-```bash
 apt-get update -y
 apt-get install debootstrap -y
 debootstrap --variant=minbase jammy /better-root
 
 # head into the new namespace'd, chroot'd environment
-
 unshare --mount --uts --ipc --net --pid --fork --user --map-root-user chroot /better-root bash # this also chroot's for us
 mount -t proc none /proc # process namespace
 mount -t sysfs none /sys # filesystem
 mount -t tmpfs none /tmp # filesystem
-````
+```
 
 This will create a new environment that's isolated on the system with its own PIDs, mounts (like storage and volumes), and network stack. Now we can't see any of the processes!
 
