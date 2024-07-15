@@ -17,6 +17,7 @@ Make a new Dockerfile, call it `Dockerfile`.
 ```dockerfile
 # build stage
 FROM node:20 AS node-builder
+RUN mkdir /build
 WORKDIR /build
 COPY package-lock.json package.json ./
 RUN npm ci
