@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { getLessons } from "../data/lesson";
 
@@ -8,6 +9,7 @@ import getCourseConfig from "../data/course";
 
 export default function Lessons({ sections }) {
   const courseInfo = getCourseConfig();
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -61,7 +63,7 @@ export default function Lessons({ sections }) {
             <ol className="sections-name">
               {sections.map((section) => (
                 <li key={section.slug}>
-                  <div className="lesson-details">
+                  <div className="lesson-details" onClickCapture={() => router.push(section.lessons[0].fullSlug)}>
                     <div className="lesson-preface">
                       <i className={`fas fa-${section.icon}`}></i>
                     </div>
