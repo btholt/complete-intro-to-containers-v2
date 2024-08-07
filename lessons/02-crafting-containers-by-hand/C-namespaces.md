@@ -22,7 +22,7 @@ Your first line of defense is that you could log them into chroot'd environments
 
 Enter namespaces. Namespaces allow you to hide processes from other processes. If we give each chroot'd environment different sets of namespaces, now Alice, Bob, and Eve can't see each others' processes (they even get different process PIDs, or process IDs, so they can't guess what the others have) and you can't steal or hijack what you can't see!
 
-There's a lot more depth to namespaces beyond what I've outlined here. The above is describing _just_ the UTS (or UNIX Timesharing) namespace. There are more namespaces as well and this will help these containers stay isloated from each other.
+There's a lot more depth to namespaces beyond what I've outlined here. The above is describing _just_ the PID namespace. There are more namespaces as well and this will help these containers stay isloated from each other.
 
 ## The problem with chroot alone
 

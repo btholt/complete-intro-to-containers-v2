@@ -15,7 +15,7 @@ keywords:
   - minimalist containers
 ---
 
-So far we've just been running containers with random tags that I chose. If you run `docker run -it node` the tag implicitly is using the `latest` tag. When you say `docker run -it node`, it's the same as saying `docker run -it node:latest`. The `:latest` is the tag. This allows you to run different versions of the same container, just like you can install React version 17 or React version 18: some times you don't want the latest. Let's say you have a legacy application at your job and it depends on running on Node.js 12 (update your app, Node.js is already past end-of-life) then you can say
+So far we've just been running containers with random tags that I chose. If you run `docker run -it node` the tag implicitly is using the `latest` tag. When you say `docker run -it node`, it's the same as saying `docker run -it node:latest`. The `:latest` is the tag. This allows you to run different versions of the same container, just like you can install React version 17 or React version 18: some times you don't want the latest. Let's say you have a legacy application at your job and it depends on running on Node.js 20 (update your app, Node.js is already past end-of-life) then you can say
 
 ```bash
 docker run -it node:20 bash

@@ -28,6 +28,8 @@ docker run -it jturpin/hollywood hollywood
 
 That will pull the hollywood container from the user jturpin's user account. The second line will execute this fun container which is just meant to look a hacker's screen in a movie (it doesn't really do anything than look cool.)
 
+> Note: The `jturpin/hollywood` image has been depricated. These steps should still work, but if you have issues, you can replace that image with `bcbcarl/hollywood`.
+
 `push` allows you to push containers to whatever registry you're connected to (probably normally Docker Hub or something like Azure Container Registry or GitHub Container Registry).
 
 ### inspect

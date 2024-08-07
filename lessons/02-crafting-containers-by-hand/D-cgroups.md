@@ -60,7 +60,7 @@ echo <PID> > /sys/fs/cgroup/sandbox/cgroup.procs
 cat /sys/fs/cgroup/sandbox/cgroup.procs
 
 # should see the process no longer in the root cgroup - processes belong to exactly 1 cgroup
-cat /sys/fs/cgroup/cgroups.proc
+cat /sys/fs/cgroup/cgroup.proc
 ```
 
 We now have moved our unshared bash process into a cgroup. We haven't placed any limits on it yet but it's there, ready to be managed. We have a minor problem at the moment though that we need to solve.
@@ -87,6 +87,9 @@ cat /sys/fs/cgroup/cgroups.proc
 
 # you have to do this one at a time for each process
 echo <PID> > /sys/fs/cgroup/other-procs/cgroup.procs
+
+# verify all the processes have been moved
+cat /sys/fs/cgroup/cgroups.proc
 
 # add the controllers
 echo "+cpuset +cpu +io +memory +hugetlb +pids +rdma" > /sys/fs/cgroup/cgroup.subtree_control
