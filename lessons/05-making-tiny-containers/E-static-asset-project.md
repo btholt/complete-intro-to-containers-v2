@@ -18,7 +18,7 @@ We're going to do a project now! Feel free to attempt the project first and then
 
 We're going to construct a very basic front end website with Astro, React, TypeScript, and Tailwind. Why these? Because I want it to have a lot of dependencies and a big build step. This class isn't about any of these things but if you want to take a class on React, my [intro][intro] and [intermediate][intermediate] classes are available on Frontend Masters.
 
-You have two choices here: you can either create your own Astro project with `npx create astro@latest` or you can just use my copy of it. I added Tailwind and React to mine but you don't necessarily need to as it doesn't really affect building the project.
+You have two choices here: you can either create your own Astro project with `npx create-astro@latest` or you can just use my copy of it. I added Tailwind and React to mine but you don't necessarily need to as it doesn't really affect building the project.
 
 Also feel free to use your own static asset project or favorite static assets framework. As long as `npm run build` works and you make sure to get the path right for where the assets are to be served from, it doesn't matter.
 

@@ -22,7 +22,7 @@ cd docker-volume
 touch index.js Dockerfile
 ```
 
-Inside that Node.js file, put this:
+Inside that index.js file, put this:
 
 ```javascript
 const fs = require("fs").promises;
@@ -46,7 +46,7 @@ const writeTo = (data) => {
 };
 ```
 
-Don't worry too much about the Node.js. It looks for a file `$DATA_PATH` if it exists or `./data.txt` if it doesn't and if it exists, it reads it, logs it, and writes back to the data file after incrementing the number. If it just run it right now, it'll create a `data.txt` file with 0 in it. If you run it again, it'll have `1` in there and so on. So let's make this work with volumes.
+Don't worry too much about the index.js. It looks for a file `$DATA_PATH` if it exists or `./data.txt` if it doesn't and if it exists, it reads it, logs it, and writes back to the data file after incrementing the number. If it just run it right now, it'll create a `data.txt` file with 0 in it. If you run it again, it'll have `1` in there and so on. So let's make this work with volumes.
 
 ```dockerfile
 FROM node:20-alpine
@@ -70,10 +70,10 @@ So, without having to rebuild your container, try this
 docker run --rm --env DATA_PATH=/data/num.txt --mount type=volume,src=incrementor-data,target=/data incrementor
 ```
 
-Now you should be to run it multiple times and everything should work! We use the `--env` flag to set the DATA_PATH to be where we want Node.js to write the file and we use `--mount` to mount a named volume called `incrementor-data`. You can leave this out and it'll be an anonymous volume that will persist beyond the container but it won't automatically choose the right one on future runs. Awesome!
+Now you should be to run it multiple times and everything should work! We use the `--env` flag to set the DATA_PATH to be where we want `index.js` to write the file and we use `--mount` to mount a named volume called `incrementor-data`. You can leave this out and it'll be an anonymous volume that will persist beyond the container but it won't automatically choose the right one on future runs. Awesome!
 
 ## named pipes, tmpfs, and wrap up
 
-Prefer to use volumes when you can, use bind mounts where it makes sense. If you're still unclear, the [official Docker][storage] docs are pretty good on the subject.
+Prefer to use volumes when you can, use bind mounts where it makes sense. If you're still unclear, the [official Docker storage](https://docs.docker.com/engine/storage/) docs are pretty good on the subject.
 
 There are two more that we didn't talk about, `tmpfs` and `npipe`. The former is Linux only and the latter is Windows only (we're not going over Windows containers at all in this workshop.) `tmpfs` imitates a file system but actually keeps everything in memory. This is useful for mounting in secrets like database keys or anything that wouldn't be persisted between container launches but you don't want to add to the Dockerfile. The latter is useful for mounting third party tools for Windows containers. If you need more info than that, refer to the docs. I've never directly used either.

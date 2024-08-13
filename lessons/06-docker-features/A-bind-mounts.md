@@ -26,7 +26,7 @@ Let's start here because this is easier to see the use case for. Bind mounts all
 
 Let's go over an example of how this could be useful.
 
-In the previous project, we used the NGINX container to build a container with our static assets baked into the container. In general this what I recommend you do since now we can ship that container anywhere and it'll just work. It's totally self-contained. But what if we just want to run a NGINX container locally to test stuff out? Sure, we could make a new Dockerfile and write it, but wouldn't it be cool if we could just use the NGINX container directly? We can! Let's try it. Go back to your static site project from the previous lesson. Let's use the `nginx` container to serve directly from it.
+In the previous project, we used the NGINX image to build a container with our static assets baked into the container. In general this what I recommend you do since now we can ship that container anywhere and it'll just work. It's totally self-contained. But what if we just want to run a NGINX container locally to test stuff out? Sure, we could make a new Dockerfile and write it, but wouldn't it be cool if we could just use the NGINX container directly? We can! Let's try it. Go back to your static site project from the previous lesson. Let's use the `nginx` container to serve directly from it.
 
 ```bash
 # from the root directory of your Astro app
