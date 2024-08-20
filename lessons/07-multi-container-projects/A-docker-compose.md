@@ -41,8 +41,6 @@ services:
     image: mongo:7
   web:
     build: web
-    environment:
-      API_URL: http://api:8080
     ports:
       - "8081:80"
 ```
@@ -55,7 +53,7 @@ The one interesting one here is the `links` field. In this one we're saying that
 
 The `db` container is pretty simple: it's just the `mongo` container from Docker Hub. This is actually smart enough to expose 27017 as the port and to make a volume to keep the data around between restarts so we don't actually have to do anything for that. If you needed any other containers, you'd just put them here in services.
 
-We then have a frontend React.js app that is being built by Parcel.js and served by NGINX. Only interesting thing is we are serving API traffic to the api URL which will go over the internal Docker Compose network
+We then have a frontend React.js app that is being built by Parcel.js and served by NGINX.
 
 There's a lot more to compose files than what I've shown you here but I'll let you explore that on your own time. [Click here][compose] to see the docs to see what else is possible.
 
