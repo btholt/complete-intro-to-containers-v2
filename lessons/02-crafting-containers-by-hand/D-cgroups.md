@@ -83,13 +83,13 @@ You have to enable controllers for the children and none of them are enabled at 
 mkdir /sys/fs/cgroup/other-procs
 
 # see all the processes you need to move, rerun each time after you add as it may move multiple processes at once due to some being parent / child
-cat /sys/fs/cgroup/cgroups.proc
+cat /sys/fs/cgroup/cgroup.procs
 
 # you have to do this one at a time for each process
 echo <PID> > /sys/fs/cgroup/other-procs/cgroup.procs
 
 # verify all the processes have been moved
-cat /sys/fs/cgroup/cgroups.proc
+cat /sys/fs/cgroup/cgroup.procs
 
 # add the controllers
 echo "+cpuset +cpu +io +memory +hugetlb +pids +rdma" > /sys/fs/cgroup/cgroup.subtree_control
